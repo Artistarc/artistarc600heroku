@@ -1,0 +1,547 @@
+<link rel="stylesheet" href="libs/fullcalendar/dist/fullcalendar.css"/>
+<script>
+  $(document)
+    .ready(function() {
+      /*
+      $('.ui.sticky')
+      .sticky({
+        context: '#example1'
+      })
+    ;*/
+        $('#context2 .menu .item')
+          .tab({
+            // special keyword works same as above
+            context: 'parent'
+          })
+        ;
+      $('.special.cards .image').dimmer({
+          on: 'hover'
+        });
+      
+      /*
+      $('#context2 a.item').removeClass('active');
+      $('#context2 .tab').addClass('active');
+      var st =0;
+      $('#context2 a.item').on('click', function(){
+          console.log('click!');
+          if(st==0){
+              $('#context2 a.item').removeClass('active');
+              $('#context2 .tab').removeClass('active');
+              
+              $(this).addClass('active');
+              var yum = $(this).attr("data-tab");
+              $('#context2 .tab[data-tab='+yum+'] ').addClass('active');
+              console.log(yum);
+              st=1;
+          }
+          else console.log('');
+      });
+      $('.cr-wiz').on('click', function(){
+            $('#context2 a.item').removeClass('active');
+            $('#context2 .tab').removeClass('active');
+            $('#context2 a.message_create').addClass('active ');
+            $('#context2 .message_create').addClass('active ');
+        });
+        */
+    })
+  ;
+    
+  </script>
+
+<div class="ui inverted vertical wato" style="height:212px!important">
+    <div class="ui grid" style="width:100%;height: 216px!important;
+                background-image:url(images/gallery/Image05@2x.jpg);
+                background-repeat: no-repeat;
+                background-size: cover;
+                background-position-y: 50%;
+                                margin:0;">
+        
+          <div class="sixteen wide column soci" style="height: 170px; background-color: rgba(0, 0, 0, 0.34);">
+          </div>
+          <div class="sixteen wide column soci" style="height: 47px; background-color: rgba(0, 0, 0, 0.34);">
+
+              <div class="ui grid" style="font-size:18px;color:white!important;">
+                  <div class="two wide column">
+                    <p></p>
+                  </div>
+                  <div class="four wide column">
+                    <p><i class="material-icons">person_add</i>
+                        <span style="font-size:17px;position: absolute;margin-left: 10px;">
+                            
+                        </span>    
+                    </p>
+                  </div>
+                  <div class="four wide column">
+                    <p><i class="material-icons">share</i>
+                        <span style="font-size:17px;position: absolute;margin-left: 10px;">
+                            
+                        </span>    
+                      </p>
+                  </div>
+                  <div class="three wide column">
+                    <p><i class="material-icons">photo_album</i>
+                        <span style="font-size:17px;position: absolute;margin-left: 10px;">
+                            
+                        </span>    
+                      </p>
+                  </div>
+                  <div class="three wide column" style="bottom: -10px;">
+                      <button class="ui circular facebook icon button">
+                            <div class="ui compact dropdown">
+                            <div class="ui simple dropdown item">
+                              <i class="facebook icon prof-btn "></i>
+                              <div class="menu">
+                                <div class="header">Adjust time span</div>
+                                <div class="active item" data-text="today">Today</div>
+                                <div class="item" data-text="this week">This Week</div>
+                                <div class="item" data-text="this month">This Month</div>
+                              </div>
+                            </div>
+                            </div>
+                        </button><!--
+                        <button class="ui circular twitter icon button">
+                          <i class="twitter icon"></i>
+                        </button>
+                        <button class="ui circular linkedin icon button">
+                          <i class="linkedin icon"></i>
+                        </button>
+                        <button class="ui circular google plus icon button">
+                          <i class="google plus icon"></i>
+                        </button>-->
+                  </div>
+              </div>
+          </div>
+        
+    </div>
+</div>
+
+<div class="ui vertical " style="height:900px!important;margin: 13px;margin-top:-49px">
+    
+    <div class="ui two column doubling stackable grid container" style="margin-left:0!importnt;margin-right:0!importnt;">
+      <div class="ui four wide column">
+        <div class="ui card" data-tab="about"  style="width:100%!important">
+            <div class="content">
+                <div class="right floated meta">14h</div>
+                <img class="ui avatar image img-prof-othr" src="/images/avatar/large/elliot.jpg"> Elliot
+              </div>
+              <!--<div class="image">
+                <img class="ui wireframe image" src="/images/wireframe/image.png">
+              </div>-->
+              <div class="content">
+                <span class="right floated">
+                  <i class="heart outline like icon"></i>
+                  17 likes
+                </span>
+                <i class="comment icon"></i>
+                3 comments
+                  
+                  <div class="ui small labels" style="margin:12px!important">
+                      <a class="ui label">
+                        Fun <i class="icon close"></i>
+                      </a>
+                      <a class="ui label">
+                        Happy
+                        <div class="detail">22</div>
+                      </a>
+                      <a class="ui label">
+                        Smart
+                      </a>
+                      <a class="ui label">
+                        Insane
+                      </a>
+                      <a class="ui label">
+                        Exciting
+                      </a>
+                    </div>
+              </div>
+              <div class="extra content">
+                <div class="ui large transparent left icon input">
+                  <i class="heart outline icon"></i>
+                  <input type="text" placeholder="Add Comment...">
+                </div>
+              </div>
+        </div>
+        <div class="ui card" style="width:100%!important">
+         
+      </div>
+      </div>
+      <div class="ui twelve wide column">
+        <div class="ui card" style="width:100%!important">
+     
+            <div id="context2">
+              <div class="ui pointing secondary menu" style="margin-bottom:0 !important">
+                <a class="item active" data-tab="calendar_list">Calendar</a>
+                <a class="item message_create" data-tab="message_create">Create</a>
+                <a class="item" data-tab="message_drafts">Drafts</a>
+                <a class="item" data-tab="message_chats">Chats</a>
+                <a class="item" data-tab="message_archives">Archives</a>
+                <a class="item" data-tab="message_favorites">Favorites</a>
+              </div>
+              <div id="messages_list" class="ui active tab segment" data-tab="calendar_list" style="margin-bottom: 0;margin-top: 0;border: 0;">
+                 <!--<div class="ui grid wide" style="margin-top:0px!important;margin-right:10px!important;margin-left:10px!important">
+                    <div class="ui twelve wide column">
+                      <form>
+                        <div class="group" style="margin-bottom:5px!important">      
+                          <input type="text" required="" style="width:100%!important">
+                          <span class="highlight"></span>
+                          <span class="bar" style="width:100%!important"></span>
+                          <label>...</label>
+                        </div>    
+                      </form>
+                    </div>
+                    <div class="ui four wide column">
+                        <button class="ui primary  button"> &nbsp;&nbsp;&nbsp;<i class="pencil icon"></i></button>
+                    </div>
+              </div>-->
+                  <div ui-calendar ng-model="eventSources"></div>
+              </div>
+              <div id="message_create" class="ui tab segment message_create" data-tab="message_create" style="margin-bottom: 0;margin-top: 0;border: 0;">
+                 <div class="ui grid wide" style="margin-top:0px!important;margin-right:10px!important;margin-left:10px!important">
+                    <div class="ui twelve wide column">
+                      <form>
+                        <div class="group" style="margin-bottom:5px!important">      
+                          <input type="text" required="" style="width:100%!important">
+                          <span class="highlight"></span>
+                          <span class="bar" style="width:100%!important"></span>
+                          <label>To...</label>
+                        </div>    
+                      </form>
+                    </div>
+              </div>
+                 <div class="ui grid wide" style="margin-top:0px!important;margin-right:10px!important;margin-left:10px!important">
+                    <div class="ui twelve wide column">
+                      <form>
+                        <div class="group" style="margin-bottom:5px!important">      
+                          <input type="text" required="" style="width:100%!important">
+                          <span class="highlight"></span>
+                          <span class="bar" style="width:100%!important"></span>
+                          <label>Message</label>
+                        </div>    
+                      </form>
+                    </div>
+                    <div class="ui four wide column">
+                        <button class="ui primary  button"> &nbsp;&nbsp;&nbsp;<i class="pencil icon"></i></button>
+                    </div>
+              </div>
+              </div>
+              <div id="message_favorites" class="ui tab segment" data-tab="message_favorites" style="margin-bottom: 0;margin-top: 0;border: 0;">
+                <h4 class="ui horizontal divider header">
+                  <i class="camera icon"></i>
+                  Folders
+                </h4>
+                  <div class="ui four stackable cards">
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="2"></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="3"></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="3"></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="3"></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                  </div>
+                  <div class="card">
+                    <div class="image">
+                      <img class="ui wireframe image" src="/images/wireframe/image.png">
+                    </div>
+                    <div class="extra">
+                      Rating:
+                      <div class="ui star rating" data-rating="4"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="message_chats" class="ui tab segment" data-tab="message_chats" style="margin-bottom: 0;margin-top: 0;border: 0;">
+
+                  <div class="ui grid wide" style="margin-top:0px!important;margin-right:10px!important;margin-left:10px!important">
+                    <div class="ui twelve wide column">
+                      <form>
+                        <div class="group">      
+                          <input type="text" required style="width:100%!important">
+                          <span class="highlight"></span>
+                          <span class="bar" style="width:100%!important"></span>
+                          <label>Write...</label>
+                        </div>    
+                      </form>
+                    </div>
+                    <div class="ui four wide column">
+                        <button class="ui primary  button">Write</button>
+                    </div>
+                  </div>
+
+                  <div class="ui feed" style="margin-top: 8px;">
+                      <div class="event">
+                        <div class="label img-conct">
+                          <img src="/images/avatar/small/elliot.jpg" class="img-actv">
+                        </div>
+                        <div class="content">
+                          <div class="summary">
+                            <a class="user">
+                              Elliot Fu
+                            </a> added you as a friend
+                            <div class="date">
+                              1 Hour Ago
+                            </div>
+                          </div>
+                          <div class="meta">
+                            <a class="like">
+                              <i class="like icon"></i> 4 Likes
+                            </a>
+                          </div>
+                        </div>
+</div>
+                      <div class="event">
+                        <div class="label img-conct">
+                          <img src="/images/avatar/small/helen.jpg" class="img-actv">
+                        </div>
+                        <div class="content">
+                          <div class="summary">
+                            <a>Helen Troy</a> added <a>2 new illustrations</a>
+                            <div class="date">
+                              4 days ago
+                            </div>
+                          </div>
+                          <div class="extra images">
+                            <a><img src="/images/wireframe/image.png"></a>
+                            <a><img src="/images/wireframe/image.png"></a>
+                          </div>
+                          <div class="meta">
+                            <a class="like">
+                              <i class="like icon"></i> 1 Like
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="event">
+                        <div class="label img-conct">
+                          <img src="/images/avatar/small/jenny.jpg" class="img-actv">
+                        </div>
+                        <div class="content">
+                          <div class="summary">
+                            <a class="user">
+                              Jenny Hess
+                            </a> added you as a friend
+                            <div class="date">
+                              2 Days Ago
+                            </div>
+                          </div>
+                          <div class="meta">
+                            <a class="like">
+                              <i class="like icon"></i> 8 Likes
+                            </a>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="event">
+                        <div class="label img-conct">
+                          <img src="/images/avatar/small/joe.jpg" class="img-actv">
+                        </div>
+                        <div class="content">
+                          <div class="summary">
+                            <a>Joe Henderson</a> posted on his page
+                            <div class="date">
+                              3 days ago
+                            </div>
+                          </div>
+                          <div class="extra text">
+                            Ours is a life of constant reruns. We're always circling back to where we'd we started, then starting all over again. Even if we don't run extra laps that day, we surely will come back for more of the same another day soon.
+                          </div>
+                          <div class="meta">
+                            <a class="like">
+                              <i class="like icon"></i> 5 Likes
+                            </a>
+                          </div>
+                        </div>
+</div>
+                      <div class="event">
+                        <div class="label img-conct">
+                          <img src="/images/avatar/small/justen.jpg" class="img-actv">
+                        </div>
+                        <div class="content">
+                          <div class="summary">
+                            <a>Justen Kitsune</a> added <a>2 new photos</a> of you
+                            <div class="date">
+                              4 days ago
+                            </div>
+                          </div>
+                          <div class="extra images">
+                            <a><img src="/images/wireframe/image.png"></a>
+                            <a><img src="/images/wireframe/image.png"></a>
+                          </div>
+                          <div class="meta">
+                            <a class="like">
+                              <i class="like icon"></i> 41 Likes
+                            </a>
+                          </div>
+                        </div>
+</div>
+                  </div>
+                </div>
+              <div id="message_archives" class="ui tab segment" data-tab="message_archives" style="margin-bottom: 0;margin-top: 0;border: 0;">
+                <div class="ui horizontal list">
+                  <div class="item">
+                    <img class="ui mini circular image" src="/images/avatar2/small/molly.png">
+                    <div class="content">
+                      <div class="ui sub header">Molly</div>
+                      Coordinator
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img class="ui mini circular image" src="/images/avatar2/small/elyse.png">
+                    <div class="content">
+                      <div class="ui sub header">Elyse</div>
+                      Developer
+                    </div>
+                  </div>
+                  <div class="item">
+                    <img src="/images/avatar2/small/eve.png" class="ui mini circular image">
+                    <div class="content">
+                      <div class="ui sub header">Eve</div>
+                      Project Manager
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div id="message_drafts" class="ui tab segment" data-tab="message_drafts" style="margin-bottom: 0;margin-top: 0;border: 0;">
+                Members
+                  <div class="ui special six doubling cards">
+                      <div class="card">
+                        <div class="blurring dimmable image">
+                            <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button">Add Friend</div>
+                              </div>
+                            </div>
+                            </div>
+                          <img src="/images/avatar/large/elliot.jpg">
+                      </div>
+                      </div>
+                      <div class="card">
+                        <div class="blurring dimmable image">
+                            <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button">Add Friend</div>
+                              </div>
+                            </div>
+                            </div>
+                          <img src="/images/avatar/large/helen.jpg">
+                      </div>
+                      </div>
+                      <div class="card">
+                        <div class="blurring dimmable image">
+                            <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button">Add Friend</div>
+                              </div>
+                            </div>
+                            </div>
+                          <img src="/images/avatar/large/jenny.jpg">
+                      </div>
+                      </div>
+                      <div class="card">
+                        <div class="blurring dimmable image">
+                            <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button">Add Friend</div>
+                              </div>
+                            </div>
+                            </div>
+                          <img src="/images/avatar/large/veronika.jpg">
+                      </div>
+                      </div>
+                      <div class="card">
+                        <div class="blurring dimmable image">
+                            <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button">Add Friend</div>
+                              </div>
+                            </div>
+                            </div>
+                          <img src="/images/avatar/large/stevie.jpg">
+                        </div>
+                      </div>
+                      <div class="card">
+                        <div class="blurring dimmable image">
+                            <div class="ui dimmer">
+                            <div class="content">
+                              <div class="center">
+                                <div class="ui inverted button">Add Friend</div>
+                              </div>
+                            </div>
+                            </div>
+                          <img src="/images/avatar/large/steve.jpg">
+                      </div>
+                    </div>
+              </div>
+              <div class="ui tab segment" data-tab="timeline" style="margin-bottom: 0;margin-top: 0;border: 0;">
+                Timeline
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+    
+<div class="ui link cards">
+    
+  
+</div>
+</div>

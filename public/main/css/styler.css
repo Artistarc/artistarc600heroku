@@ -1,0 +1,310 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto);
+
+.body {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px ;
+  line-height: 1.42857143 ;
+}
+
+//
+
+.ui.cards > .card, .ui.card {
+    border-radius: 0!important;
+}
+
+.card {
+    border-radius: 0!important;
+}
+
+.ui.cards > .card > :first-child, .ui.card > :first-child {
+    border-radius: 0!important;
+}
+
+.image {
+    border-radius: 0!important;
+}
+
+.usrnm {
+    color: rgba(0,0,0,.5) !important;
+    font-size: 12px !important;
+    margin-left: 34px !important;
+    top: -8px !important;
+    position: relative !important;
+}
+
+.membr-dd > .column {
+    padding-bottom: 2px !important;
+    padding-top: 2px !important;
+    overflow: hidden !important;
+}
+
+.img-actv {
+    position: relative !important;
+    top: -4px !important;
+    width: 45px !important;
+}
+.img-conct {
+    width: 1.7em !important;
+    border-right: 3px solid #DDDDDD !important;
+    margin-left: 6px !important;
+    margin-right: 25px!important;
+    margin-top: -2px!important;
+}
+.img-prof-othr {
+    width: 75px!important;
+    height: 75px!important;
+}
+a.ui.card:hover {
+    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px rgba(0,0,0,.23)!important;
+}
+
+.wid {
+    width: 100%;
+}
+
+.col-head-rm {
+    padding-top: 15px !important;
+    padding-bottom: 5px !important;
+}
+
+.col-row-rm {
+    padding-top: 5px !important;
+    padding-bottom: 5px !important;
+}
+
+.col-end-rm {
+    padding-top: 5px !important;
+    padding-bottom: 10px !important;
+}
+
+.sm-notf{
+    float: right;
+    width: auto;
+    height: auto;
+    padding: 4.5px !important;
+}
+
+.bdge {
+    top: 4px !important;
+    left: 48px !important;
+    font-size: 8px !important;
+}
+
+.shado {
+    box-shadow: 0 3px 6px rgba(0,0,0,.16),0 3px 6px       rgba(0,0,0,.23)!important;
+}
+
+.prof-btn {
+    width: 20px !important;
+    height: 25px !important;
+    padding: 6px 8.5px !important;
+}
+.magic-btn {
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.24) !important;
+    -webkit-transition: box-shadow 280ms cubic-bezier(.4,0,.2,1) !important;
+    transition: box-shadow 280ms cubic-bezier(.4,0,.2,1) !important;
+}
+.magic-btn:hover {
+        box-shadow: 0 10px 20px rgba(0,0,0,.19),0 6px 6px rgba(0,0,0,.23) !important;
+}
+.glass {
+    background: transparent !important;
+    border-color: transparent !important;
+}
+
+/* form starting stylings ------------------------------- */
+.group 			  { 
+  position:relative; 
+  margin-bottom:45px; 
+}
+input 				{
+  font-size:18px;
+  padding:10px 10px 10px 5px;
+  display:block;
+  width:300px;
+  border:none;
+  border-bottom:1px solid #757575;
+}
+input:focus 		{ outline:none; }
+
+/* LABEL ======================================= */
+label 				 {
+  color:#999; 
+  font-size:18px;
+  font-weight:normal;
+  position:absolute;
+  pointer-events:none;
+  left:4px;
+  top:10px;
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+
+/* active state */
+input:focus ~ label, input:valid ~ label 		{
+  top:-10px;
+  font-size:14px;
+  color:#5264AE;
+}
+.ab_in:focus ~ label, .ab_in:valid ~ label 		{
+  top:-11px !important;
+  font-size:13px !important;
+  color:#787C8A !important;
+}
+.ab_icons{
+  font-size: 18px !important;
+}
+
+/* BOTTOM BARS ================================= */
+.bar 	{ position:relative; display:block; width:300px; }
+.bar:before, .bar:after 	{
+  content:'';
+  height:2px; 
+  width:0;
+  bottom:1px; 
+  position:absolute;
+  background:#5264AE; 
+  transition:0.2s ease all; 
+  -moz-transition:0.2s ease all; 
+  -webkit-transition:0.2s ease all;
+}
+.bar:before {
+  left:50%;
+}
+.bar:after {
+  right:50%; 
+}
+
+/* active state */
+input:focus ~ .bar:before, input:focus ~ .bar:after {
+  width:50%;
+}
+
+/* HIGHLIGHTER ================================== */
+.highlight {
+  position:absolute;
+  height:60%; 
+  width:100px; 
+  top:25%; 
+  left:0;
+  pointer-events:none;
+  opacity:0.5;
+}
+
+/* active state */
+input:focus ~ .highlight {
+  -webkit-animation:inputHighlighter 0.5s ease;
+  -moz-animation:inputHighlighter 0.5s ease;
+  animation:inputHighlighter 0.5s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@-moz-keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+@keyframes inputHighlighter {
+	from { background:#5264AE; }
+  to 	{ width:0; background:transparent; }
+}
+/*******************************
+            Button
+*******************************/
+
+/*-------------------
+       Element
+--------------------*/
+
+@googleFontName : 'Roboto';
+@pageFont       : 'Roboto', Arial, sans-serif;
+
+@medium: 13px;
+
+@verticalPadding   : 0.8em;
+@horizontalPadding : 0.8em;
+@borderRadius      : @relative3px;
+@color             : #222222;
+@fontWeight        : normal;
+@textTransform     : none;
+
+@backgroundColor      : @white;
+@backgroundImage      : linear-gradient(transparent, rgba(0, 0, 0, 0.02));
+
+@solidBorderColor: #DDDDDD;
+
+@borderBoxShadowColor: @solidBorderColor;
+@borderBoxShadow: 0px 0px 0px 1px @solidBorderColor inset;
+@shadowBoxShadow: 0px 0px 0px 0px transparent;
+
+@transition:
+  opacity 0.3s @defaultEasing,
+  background-color 0.3s @defaultEasing,
+  color 0.3s @defaultEasing,
+  box-shadow 0.3s @defaultEasing,
+  background 0.3s @defaultEasing
+;
+/*-------------------
+        State
+--------------------*/
+
+@hoverBackgroundColor: @white;
+@hoverBoxShadow:
+  @borderBoxShadow,
+  0px 2px 3px 0px rgba(0, 0, 0, 0.2) !important
+;
+
+@downBackgroundColor: @white;
+@downBackgroundImage: linear-gradient(rgba(0, 0, 0, 0.04), rgba(0, 0, 0, 0.04));
+@downTextColor: #222222;
+@downBoxShadow: @borderBoxShadow;
+
+@activeBackgroundColor: #F0F0F0;
+@activeBoxShadow: 0px 0px 0px 1px #DDDDDD;
+
+/*-------------------
+      Variations
+--------------------*/
+
+/* Basic */
+@basicBorderSize: 0px;
+@basicBorderRadius: 4px;
+@basicColoredBorderSize: 1px;
+@basicHoverBackground: @white;
+@basicHoverBoxShadow: @hoverBoxShadow;
+@basicDownBackground: @white;
+@basicDownBoxShadow: @downBoxShadow;
+
+@basicActiveBackground: #FFFFFF;
+@basicActiveBoxShadow: 0px 0px 0px 1px rgba(0, 0, 0, 0.2);
+
+/* Labeled */
+@labeledIconBackgroundColor: transparent;
+@labeledIconWidth: 2em;
+
+@labeledLabelBorderOffset: 0px;
+
+/* Colored */
+@coloredBackgroundImage : @subtleGradient;
+@coloredBoxShadow       : 0px 0px 0px 1px rgba(0, 0, 0, 0.1) inset;
+
+/* Primary */
+@primaryColor       : #4184F3;
+@primaryBoxShadow   : 0px 0px 0px 1px #0157E4 inset;
+
+/* Secondary */
+@secondaryColor           : #EEEEEE;
+@secondaryBackgroundImage : @backgroundImage;
+@secondaryTextColor       : @textColor;
+@secondaryBoxShadow       : @borderBoxShadow;
+
+/* Emotive */
+@positiveColor: #3D9400;
+@negativeColor: #D34836;
+
+/* Inverted */
+@invertedBorderSize: 1px;

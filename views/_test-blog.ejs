@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../favicon.ico">
+
+    <title>Artistarc</title>
+    
+    <!-- Style -->  <!--
+    <link rel='stylesheet' type='text/css' href='main/css/style.css' />
+    <link rel='stylesheet' type='text/css' href='main/css/scaler.css' />
+    <link rel='stylesheet' type='text/css' href='main/css/helper.css' />
+      -->
+    <!-- Bootstrap core CSS -->
+    <link href="libs/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="libs/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+    <!-- Semantic UI -->
+    <link href="libs/Semantic-UI/dist/semantic.css" rel="stylesheet">
+    
+    <!-- Angular-chart Js
+    ================================================== -->
+    <link rel="stylesheet" href="libs/angular-chart.js/dist/angular-chart.css">
+    
+    <!-- FontAwesome -->
+    <link rel='stylesheet' type='text/css' href='assets/font-awesome/css/font-awesome.min.css' />
+      
+    <!-- Animate css -->
+    <link rel='stylesheet' href='assets/animate.css/animate.css'>
+
+    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+      
+
+    <style type="text/css">
+
+      body {
+        background-color: #FFFFFF;
+      }
+      .main.container {
+        margin-top: 2em;
+      }
+
+      .main.menu {
+        margin-top: 4em;
+        border-radius: 0;
+        border: none;
+        box-shadow: none;
+        transition:
+          box-shadow 0.5s ease,
+          padding 0.5s ease
+        ;
+      }
+      .main.menu .item img.logo {
+        margin-right: 1.5em;
+      }
+
+      .overlay {
+        float: left;
+        margin: 0em 3em 1em 0em;
+      }
+      .overlay .menu {
+        position: relative;
+        left: 0;
+        transition: left 0.5s ease;
+      }
+
+      .main.menu.fixed {
+        background-color: #FFFFFF;
+        border: 1px solid #DDD;
+        box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.2);
+      }
+      .overlay.fixed .menu {
+        left: 800px;
+      }
+
+      .text.container .left.floated.image {
+        margin: 2em 2em 2em -4em;
+      }
+      .text.container .right.floated.image {
+        margin: 2em -4em 2em 2em;
+      }
+
+      .ui.footer.segment {
+        margin: 5em 0em 0em;
+        padding: 5em 0em;
+      }
+      
+    </style>
+      
+  </head>
+
+  <body class="body" role="document">
+
+      <!--<div class="l-r-0 container-fluid w-100p" style="width: 96%!important;margin-left: 47px!important;overflow:hidden">
+        <div ng-view style="padding-left: 15px; padding-top: 7px;"></div>
+          <//%= console.log(user) %>
+      </div>
+        <nav class="navbar navbar-fixed-top" 
+             ng-controller="navController" 
+             style="height: 100%;width:51px;background-color: rgba(0, 0, 0, 0.89)!important;">
+          <div class="container-fluid" style="padding:0">
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-home ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-bar-chart ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-bell-o ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-cloud ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-music ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-folder ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-users ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-inbox ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-search ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-star-o ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-tasks ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-user-plus ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa credit-card ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                    <i class="fa fa-cogs ptr" style="font-size: 29px; margin: 8px; color: rgb(154, 154, 154);"></i>
+                </div>
+              </div>
+          </div>
+        </nav>
+        
+    </div>
+  <nav class="navbar navbar-fixed-top" 
+             ng-controller="navController" 
+             style="top: 93%;height: 40px;background-color: rgba(0, 0, 0, 0.89)!important">
+          <div class="container-fluid" style="padding-left:0">
+              <img src="images/logo.jpg" style="width:51px;height:inherit"></img>
+          </div>
+    </nav>-->
+      
+      
+  <div class="ui main text container">
+    <h1 class="ui header">Artistarc</h1>
+    <p>This example shows how to use lazy loaded images, a sticky menu, and a simple text container</p>
+  </div>
+
+
+  <div class="ui borderless main menu">
+    <div class="ui text container">
+      <div href="#" class="header item">
+        <img class="logo" src="assets/images/logo.png">
+        Project Name
+      </div>
+      <a href="#" class="item">Blog</a>
+      <a href="#" class="item">Articles</a>
+      <a href="#" class="ui right floated dropdown item">
+        Dropdown <i class="dropdown icon"></i>
+        <div class="menu">
+          <div class="item">Link Item</div>
+          <div class="item">Link Item</div>
+          <div class="divider"></div>
+          <div class="header">Header Item</div>
+          <div class="item">
+            <i class="dropdown icon"></i>
+            Sub Menu
+            <div class="menu">
+              <div class="item">Link Item</div>
+              <div class="item">Link Item</div>
+            </div>
+          </div>
+          <div class="item">Link Item</div>
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <div class="ui text container">
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <div class="overlay">
+      <div class="ui labeled icon vertical menu">
+        <a class="item"><i class="twitter icon"></i> Tweet</a>
+        <a class="item"><i class="facebook icon"></i> Share</a>
+        <a class="item"><i class="mail icon"></i> E-mail</a>
+      </div>
+    </div>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <img class="ui medium left floated image" data-src="assets/images/wireframe/square-image.png">
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+    <img class="ui medium right floated image" data-src="assets/images/wireframe/square-image.png">
+    Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <img class="ui medium left floated image" data-src="assets/images/wireframe/square-image.png">
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.
+    <img class="ui medium right floated image" data-src="assets/images/wireframe/square-image.png">
+    Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+    <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum sed, commodo vitae, ornare sit amet, wisi. Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. Donec non enim in turpis pulvinar facilisis. Ut felis. Praesent dapibus, neque id cursus faucibus, tortor neque egestas augue, eu vulputate magna eros eu erat. Aliquam erat volutpat. Nam dui mi, tincidunt quis, accumsan porttitor, facilisis luctus, metus</p>
+  </div>
+
+  <div class="ui inverted vertical footer segment">
+    <div class="ui center aligned container">
+      <div class="ui stackable inverted divided grid">
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 1</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 2</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="three wide column">
+          <h4 class="ui inverted header">Group 3</h4>
+          <div class="ui inverted link list">
+            <a href="#" class="item">Link One</a>
+            <a href="#" class="item">Link Two</a>
+            <a href="#" class="item">Link Three</a>
+            <a href="#" class="item">Link Four</a>
+          </div>
+        </div>
+        <div class="seven wide column">
+          <h4 class="ui inverted header">Footer Header</h4>
+          <p>Extra space for a call to action inside the footer that could help re-engage users.</p>
+        </div>
+      </div>
+      <div class="ui inverted section divider"></div>
+      <img src="assets/images/logo.png" class="ui centered mini image">
+      <div class="ui horizontal inverted small divided link list">
+        <a class="item" href="#">Site Map</a>
+        <a class="item" href="#">Contact Us</a>
+        <a class="item" href="#">Terms and Conditions</a>
+        <a class="item" href="#">Privacy Policy</a>
+      </div>
+    </div>
+  </div>
+      
+    <!-- Bootstrap core JavaScript & Semantic UI
+    ================================================== -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script src="libs/bootstrap/js/bootstrap.min.js"></script>
+    <script src="libs/bootbox.js/bootbox.js"></script>
+    <script src="libs/Semantic-UI/dist/semantic.js"></script>
+      
+    <!-- AngularJs
+    ================================================== -->
+    <script src="libs/angular/angular.js"></script>
+    <script src="libs/angular-route/angular-route.js"></script>
+      
+    <!-- AWS-sdk-js
+    ================================================== -->
+    <script src="libs/aws-sdk/dist/aws-sdk.js"></script>
+      
+    <!-- Animate Js
+    ================================================== -->
+    <script src="libs/angular-animate/angular-animate.js"></script>
+    <script src="libs/angular-resource/angular-resource.js"></script>
+    <script src="libs/angular-bootstrap/ui-bootstrap-tpls.js"></script>
+    
+    <!-- Angular-chart Js
+    ================================================== -->
+    <script src="libs/Chart.js/Chart.js"></script>
+    <script src="libs/angular-chart.js/dist/angular-chart.js"></script>
+      
+    <script src="libs/amcharts.js/amcharts.js"></script>
+    <script src="http://www.amcharts.com/lib/3/serial.js"></script>
+    <script src="http://www.amcharts.com/lib/3/pie.js"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/light.js"></script>
+    <script src="http://www.amcharts.com/lib/3/themes/patterns.js"></script>
+
+      
+    <!-- AppJs && Controllers
+    ================================================== -->  
+    <script src="js/app.js"></script> 
+    <script src="js/controllers/testController.js"></script>
+    <script src="js/controllers/navController.js"></script>
+    <script src="js/controllers/editController.js"></script>
+    <script src="js/controllers/userController.js"></script>
+    <script src="js/controllers/analyticsController.js"></script>
+    <script src="js/controllers/troupeProfileCtrl.js"></script>
+    <script src="js/controllers/userProfileCtrl.js"></script>
+    <script src="js/controllers/projectProfileCtrl.js"></script>
+    <script src="js/controllers/projectListCtrl.js"></script>
+    <script src="js/controllers/galleryController.js"></script>
+      
+    <!-- Directives
+    ================================================== -->  
+    <script src="js/directives/mediaDirctv.js"></script>
+      
+    <!-- Services Js
+    ================================================== -->
+    <script src="js/services/Api.js"></script> 
+    <script src="js/services/UserVar.js"></script> 
+    
+      
+    <script>
+      jQuery(document).ready(function() {
+
+          // fix main menu to page on passing
+          $('.main.menu').visibility({
+            type: 'fixed'
+          });
+          $('.overlay').visibility({
+            type: 'fixed',
+            offset: 80
+          });
+
+          // lazy load images
+          $('.image').visibility({
+            type: 'image',
+            transition: 'vertical flip in',
+            duration: 500
+          });
+
+          // show dropdown on hover
+          $('.main.menu  .ui.dropdown').dropdown({
+            on: 'hover'
+          });
+        });
+    </script>
+  </body>
+</html>

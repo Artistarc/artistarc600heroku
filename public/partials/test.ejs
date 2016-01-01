@@ -1,0 +1,798 @@
+<script>/*
+  $(document)
+    .ready(function() {
+
+        //$('.fixed.menu').transition('fade in');
+
+
+          $('.wato')
+            .visibility({
+              once: false,
+              onBottomPassed: function() {
+                $('.fixed.menu').transition('fade in');
+                  //alert('now');
+                  console.log('now');
+              },
+              onBottomPassedReverse: function() {
+                $('.fixed.menu').transition('fade out');
+                  console.log('now back');
+              }
+            })
+          ;
+      // create sidebar and attach to menu open
+      $('.ui.sidebar')
+        .sidebar('attach events', '.toc.item')
+      ;
+
+    })
+  ;
+   */
+    //$('.fixed.menu').transition('fade in');
+  </script>
+<!--<div class="wato" style="height:0;top:-20px"></div>
+<div class="ui inverted vertical wato" style="height:10px!important"></div>-->
+<script>
+  $(document)
+    .ready(function() {
+      $('.special.card .image').dimmer({
+        on: 'hover'
+      });
+      $('.star.rating')
+        .rating()
+      ;
+      $('.card .dimmer')
+        .dimmer({
+          on: 'hover'
+        })
+      ;
+      $('.ui.accordion')
+          .accordion()
+      ;
+      })
+      ;
+    
+</script>
+<div class="wato" style="height:0px;"></div>
+<div class="ui vertical waro" style="margin-top: 68px!important;">
+    
+<div class="ui small modal modalT" ng-controller="troupeCtrl2">
+  <i class="close icon"></i>
+  <div class="header">
+        <img class="ui avatar image" src="/images/avatar/small/helen.jpg">
+    Troupes
+  </div>
+  <div class="content">
+  </div>
+
+    <div class="ui two column wide grid" style="padding: 0px 20px 0px 14px !important;">
+        <div class="seven column wide">
+            <form>
+                <div class="group">
+                    <input type="text" class="ab_in" ng-model="form.troupename" style="width:100%!important">
+                    <span class="highlight"></span>
+                    <span class="bar" style="width:100%!important"></span>
+                    <label>Troupe Name</label>
+            </div>
+            </form>
+        </div>
+
+        <div class="nine column wide">
+            <form>
+                <div class="group">
+                   <input type="sub" class="ab_in" ng-model="form.username" style="width:100%!important">
+                   <span class="highlight"></span>
+                   <span class="bar" style="width:100%!important"></span>
+                   <label>Username</label>
+                </div>
+                   <button type="submit" class="ui primary button" ng-click="addToDatabase()" style="float:right">Create</button>
+            </form>
+        </div>
+
+    </div>
+    <!--<div class="description">
+      <button class="ui primary button">Create</button>
+    </div>-->
+    
+          <div class="ui two column wide grid center aligned">
+              <div class="ui column wide" style="font-weight: bold !important;font-size: 1.28em !important;">
+                  Troupe
+              </div>
+              <div class="ui column wide" style="font-weight: bold !important;font-size: 1.28em !important;">
+                  Username
+              </div>
+              </div>
+          <div class="ui two column wide grid center aligned" ng-repeat="troupes in troupe | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+              <div class="ui column wide">
+                  {{troupes.name}}
+              </div>
+              <div class="ui column wide">
+                  {{troupes.username}}
+                  <span style="left:70%;position: absolute;"><i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)" style="float:right"></i></span>
+              </div>
+          </div>
+          
+  <div class="actions">
+    <div class="ui deny button">Cancel</div>
+    <div class="ui positive right labeled icon button">OK</div>
+  </div>
+</div>
+
+<div class="ui small modal modalP" ng-controller="projectCtrl2">
+  <i class="close icon"></i>
+  <div class="header">
+    Projects
+  </div>
+  <div class="content">
+  </div>
+
+    <div class="ui stackable two column wide grid" style="padding: 0px 20px 0px 14px !important;">
+        <div class="column wide">
+            <form>
+                <div class="group">
+                    <input type="text" class="ab_in" ng-model="projectform.projectname" style="width:100%!important">
+                    <span class="highlight"></span>
+                    <span class="bar" style="width:100%!important"></span>
+                    <label>Project Name</label>
+            </div>
+            </form>
+        </div>
+
+        <div class="column wide">
+            <form>
+                <div class="group">
+                   <input type="sub" class="ab_in" ng-model="projectform.username" style="width:100%!important">
+                   <span class="highlight"></span>
+                   <span class="bar" style="width:100%!important"></span>
+                   <label>Username</label>
+                </div>
+                   <button type="submit" ng-click="addToDatabase()" class="ui primary button" style="float:right">Create</button>
+            </form>
+        </div>
+
+    </div>
+    
+    <div style="content">
+     <div class="ui two column wide grid center aligned">
+              <div class="ui column wide" style="font-weight: bold !important;font-size: 1.28em !important;">
+                  Project
+              </div>
+              <div class="ui column wide" style="font-weight: bold !important;font-size: 1.28em !important;">
+                  Username
+              </div>
+              </div>
+     <div class="ui two column wide grid center aligned" ng-repeat="projects in project | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+              <div class="ui column wide">
+                  {{projects.name}}
+              </div>
+              <div class="ui column wide">
+                  {{projects.username}}
+                  <span style="left:70%;position: absolute;"><i class="fa fa-trash" ng-click="delete((currentPage - 1) * pageSize + $index)" style="float:right"></i></span>
+              </div>
+          </div>
+    </div>
+    
+  <div class="actions">
+    <div class="ui deny button">Cancel</div>
+    <div class="ui positive right labeled icon button">OK</div>
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row" style="">
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="ui one stackable cards">
+            <div class="ui card">
+                <div class="image">
+                  <div class="ui blurring inverted dimmer">
+                    <div class="content">
+                      <div class="center">
+                        <div class="ui teal button">Add Friend</div>
+                      </div>
+                    </div>
+                  </div>
+                  <img src="../assets/images/wireframe/image.png">
+                </div>
+                <div class="content">
+                  <div class="header">Title</div>
+                  <div class="meta">
+                    <a class="group">Meta</a>
+                  </div>
+                  <div class="description">One or two sentence description that may go to several lines</div>
+                </div>
+                <div class="extra content">
+                  <a class="right floated created">Arbitrary</a>
+                  <a class="friends">
+                    Arbitrary</a>
+                </div>
+            </div>
+            <div class="ui vertical fluid accordion menu" style="width:98%!important">
+                  <div class="item">
+                      <a class="title">
+                        Profile
+                        <i class="dropdown icon"></i>
+                      </a>
+                      <div class="content">
+                        <p class="transition hidden">                            
+                        <div class="ui primary test button" ng-controller="troupeCtrl2" ng-click="openTrModal()">Launch modal{{currentPage}}</div>
+                        </p>
+                      </div>
+                  </div>
+                  <div class="item">
+                  <div class="title">
+                    Troupes
+                      
+                    <i class="dropdown icon"></i>
+                        <div class="ui label sm-notf">
+                         23
+                        </div>
+                  </div>
+                  <div class="content">
+                    <p class="transition hidden">                          
+                        <div class="ui primary test button" ng-controller="troupeCtrl2" ng-click="openTrModal()">Troupes</div>
+                    </p>
+                  </div>
+                  </div>
+                  <div class="item">
+                      <div class="title">
+                        Projects
+                        <i class="dropdown icon"></i>
+                      </div>
+                      <div class="content">
+                        <p class="transition hidden">
+                          <div class="ui primary test button" ng-controller="projectCtrl2" ng-click="openPrModal()">Projects</div>
+                        </p>
+                      </div>
+                  </div>
+                  
+                  <div class="item" style="padding:0">
+                      <div class="item active" style="background-color: rgba(253, 253, 253, 0.13);">
+                        <div class="ui transparent icon input wid">
+                          <input type="text" placeholder="Search mail...">
+                          <i class="search icon" style="float:right"></i>
+                        </div>
+                      </div>
+                  </div>
+                  
+        </div>
+            <div class="ui card">
+    <div class="extra content">
+      <span class="left floated like">
+        <i class="like icon"></i>
+        Like
+      </span>
+      <span class="right floated star">
+        <i class="star icon"></i>
+        Favorite
+      </span>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+            <div class="ui card">
+                <div class="content">
+                  Content 1
+                </div>
+                <div class="content">
+                  Content 2
+                </div>
+                <div class="content">
+                  Content 3
+                </div>
+                <div class="extra content">
+                  Extra Content
+                </div>
+              </div>
+            <div class="ui card">
+    <div class="extra content">
+      <span class="left floated like">
+        <i class="like icon"></i>
+        Like
+      </span>
+      <span class="right floated star">
+        <i class="star icon"></i>
+        Favorite
+      </span>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+          </div>
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-12" ng-controller="postsController">
+            <div class="ui one stackable cards">
+            <a href="#" class="ui card" ng-repeat="post in posts | startFrom:(currentPage - 1) * pageSize | limitTo: pageSize">
+              <div class="content">
+                <div class="header">{{post.body}}</div>
+                <div class="meta">
+                  <span class="category">Animals</span>
+                </div>
+                <div class="description">
+                  <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+                </div>
+              </div>
+              <div class="extra content">
+                <div class="right floated author">
+                  <img src="../assets/images/wireframe/square-image.png" class="ui avatar image">
+                    {{post.local.author_username}}
+                </div>
+              </div>
+            </a>
+            
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            <div class="ui card">
+    <div class="blurring dimmable image">
+      <div class="ui dimmer">
+        <div class="content">
+          <div class="center">
+            <div class="ui inverted button">Call to Action</div>
+          </div>
+        </div>
+      </div>
+      <img src="../assets/images/wireframe/image.png">
+    </div>
+    <div class="content">
+      <a class="header">Name</a>
+      <div class="meta">
+        <span class="date">Date</span>
+      </div>
+    </div>
+    <div class="extra content">
+      <a>
+        <i class="users icon"></i>
+        Users
+      </a>
+    </div>
+  </div>
+            <div class="ui card">
+    <div class="content">
+      <div class="header">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar right spaced image">
+        Abbreviated Header
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="ui two bottom attached buttons">
+      <div class="ui button">
+        Action 1
+      </div>
+      <div class="ui button">
+        Action 2
+      </div>
+    </div>
+  </div>
+            <div class="ui card">
+    <div class="content">
+      Content 1
+    </div>
+    <div class="content">
+      Content 2
+    </div>
+    <div class="content">
+      Content 3
+    </div>
+    <div class="extra content">
+      Extra Content
+    </div>
+  </div>
+            <div class="ui card">
+    <div class="content">
+      <div class="header">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar right spaced image">
+        Abbreviated Header
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="ui two bottom attached buttons">
+      <div class="ui button">
+        Action 1
+      </div>
+      <div class="ui button">
+        Action 2
+      </div>
+    </div>
+  </div>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-12" ng-controller="postsController">
+            <div class="ui one stackable cards">            
+            <a href="#" class="ui card" ng-repeat="post in posts | startFrom:(currentPage) * pageSize | limitTo: pageSize">
+              <div class="content">
+                <div class="header">{{post.body}}</div>
+                <div class="meta">
+                  <span class="category">Animals</span>
+                </div>
+                <div class="description">
+                  <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+                </div>
+              </div>
+              <div class="extra content">
+                <div class="right floated author">
+                  <img src="../assets/images/wireframe/square-image.png" class="ui avatar image">
+                    {{post.local.author_username}}
+                </div>
+              </div>
+            </a>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a> 
+            <div class="ui card">
+    <div class="ui slide right reveal image">
+      <div class="visible content">
+        <img class="ui fluid image" src="../assets/images/avatar/nan.jpg">
+      </div>
+      <div class="hidden content">
+        <img class="ui fluid image" src="../assets/images/avatar/tom.jpg">
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            <div class="ui card">
+    <div class="content">
+      Content 1
+    </div>
+    <div class="content">
+      Content 2
+    </div>
+    <div class="content">
+      Content 3
+    </div>
+    <div class="extra content">
+      Extra Content
+    </div>
+  </div>
+            <a href="#" class="ui card">
+    <div class="content">
+      <div class="header">Cute Dog</div>
+      <div class="meta">
+        <span class="category">Animals</span>
+      </div>
+      <div class="description">
+        <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+      </div>
+    </div>
+    <div class="extra content">
+      <div class="right floated author">
+        <img src="../assets/images/wireframe/square-image.png" class="ui avatar image"> Username
+      </div>
+    </div>
+  </a>
+            </div>
+        </div>
+        <div class="col-md-3 col-sm-4 col-xs-12">
+          <div class="ui one stackable cards">
+            <div class="ui card">
+                <div class="ui feed" style="padding:13px">
+            <div class="event">
+              <div class="label">
+                <img src="/images/avatar2/small/mark.png">
+              </div>
+              <div class="content">
+                <div class="summary">
+                  <a class="user">
+                    Mark
+                  </a> added you as a friend
+                </div>
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <img src="/images/avatar2/small/lena.png">
+              </div>
+              <div class="content">
+                You added Lena to the group <a>Close Friends</a>
+              </div>
+            </div>
+            <div class="event">
+              <div class="label">
+                <img src="/images/avatar2/small/eve.png">
+              </div>
+              <div class="content">
+                Eve just <a>posted on your page</a>
+              </div>
+            </div>
+          </div> 
+            </div>
+            <div class="ui card" style="padding:9px">
+                <div class="ui celled list">
+  <div class="item">
+    <img class="ui avatar image" src="/images/avatar/small/helen.jpg">
+    <div class="content">
+      <a class="header">Snickerdoodle</a>
+      An excellent companion
+    </div>
+  </div>
+  <div class="item">
+    <img class="ui avatar image" src="/images/avatar/small/daniel.jpg">
+    <div class="content">
+      <a class="header">Poodle</a>
+      A poodle, its pretty basic
+    </div>
+  </div>
+  <div class="item">
+    <img class="ui avatar image" src="/images/avatar/small/daniel.jpg">
+    <div class="content">
+      <a class="header">Paulo</a>
+      He's also a dog
+    </div>
+  </div>
+  <div class="item">
+    <img class="ui avatar image" src="/images/avatar2/small/mark.png">
+    <div class="content">
+      <a class="header">Paulo</a>
+      He's also a dog
+    </div>
+  </div>
+  <div class="item">
+    <img class="ui avatar image" src="/images/avatar2/small/molly.png">
+    <div class="content">
+      <a class="header">Paulo</a>
+      He's also a dog
+    </div>
+  </div>
+</div>
+            </div>
+            
+            <div class="ui card" ng-controller="searchController">
+                <div class="content">
+                    <div class="header">
+                        <div class="ui transparent icon input wid">
+                          <input type="text" placeholder="Search..." id="searchqrry" ng-Keypress="searchVar(formSearch.searchqrry)" ng-model="formSearch.searchqrry">
+                          <i class="search icon" style="float:right"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="extra content" ng-show="formSearch.searchqrry" class="ng-hide">
+                  Searching " {{formSearch.searchqrry}} "
+                </div>
+                <div class="content" ng-repeat="sUser in searchUser">
+                  <a href="user/{{sUser.local.username}}">
+                      <div class="row">
+                        <div class="col-sm-6 col-md-6 text-center">
+                            {{sUser.fname}}</div>
+                        <div class="col-sm-6 col-md-6 text-center"> 
+                            {{sUser.local.username}}</div>
+                      </div>
+                      </a>
+                </div>
+                <div class="content" ng-repeat="sTroupe in searchTroupe">
+                  <a href="troupe/{{sTroupe.username}}">
+                      <div class="row">
+                        <div class="col-sm-6 col-md-6 text-center">
+                            {{sTroupe.name }}</div>
+                        <div class="col-sm-6 col-md-6 text-center"> 
+                            {{sTroupe.username }}</div>
+                      </div>
+                      </a>
+                </div>
+                <div class="content" ng-repeat="sProject in searchProject">
+                  <a href="project/{{sProject.username}}">
+                      <div class="row">
+                        <div class="col-sm-6 col-md-6 text-center">
+                            {{sProject.name }}</div>
+                        <div class="col-sm-6 col-md-6 text-center"> 
+                            {{sProject.username }}</div>
+                      </div>
+                      </a>
+                </div>
+                <div class="extra content">
+                  Recent Searches .
+                </div>
+              </div>
+            
+            <div class="ui card">
+                <div class="ui divider"></div>
+                <div class="ui divider"></div>
+                <div class="ui divider"></div>
+                <div class="ui divider"></div>
+            </div>
+            <div class="ui card">
+                <div class="content">
+                  <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+                </div>
+              </div>
+            <div class="ui card">
+    <div class="ui move reveal image">
+      <div class="visible content">
+        <img class="ui fluid image" src="../assets/images/avatar/tom.jpg">
+      </div>
+      <div class="hidden content">
+        <img class="ui fluid image" src="../assets/images/avatar/nan.jpg">
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+  </div>
+            <div class="ui card">
+    <div class="ui two top attached basic buttons">
+      <div class="ui button">
+        Action 1
+      </div>
+      <div class="ui button">
+        Action 2
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="ui two bottom attached basic buttons">
+      <div class="ui button">
+        Action 3
+      </div>
+      <div class="ui button">
+        Action 4
+      </div>
+    </div>
+  </div>
+            <div class="ui card">
+    <div class="content">
+      Content 1
+    </div>
+    <div class="content">
+      Content 2
+    </div>
+    <div class="content">
+      Content 3
+    </div>
+    <div class="extra content">
+      Extra Content
+    </div>
+  </div>
+            <div class="ui card">
+    <div class="ui two top attached basic buttons">
+      <div class="ui button">
+        Action 1
+      </div>
+      <div class="ui button">
+        Action 2
+      </div>
+    </div>
+    <div class="content">
+      <img src="../assets/images/wireframe/paragraph.png" class="ui wireframe image">
+    </div>
+    <div class="ui two bottom attached basic buttons">
+      <div class="ui button">
+        Action 3
+      </div>
+      <div class="ui button">
+        Action 4
+      </div>
+    </div>
+  </div>
+          </div>
+        </div>
+    </div>
+</div>
+</div>

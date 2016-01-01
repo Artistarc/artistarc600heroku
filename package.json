@@ -1,0 +1,62 @@
+{
+  "name": "artistarc",
+  "version": "6.0.0",
+  "author": "KJ <karanjeet96@live.com>",
+  "description": "ART",
+  "main": "./server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "contributors": [
+    {
+      "name": "Karan jeet",
+      "email": "karanjeet96@live.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Artistarc/artistarc600heroku.git"
+  },
+  "keywords": [
+    "artistarc",
+    "arcorp"
+  ],
+  "noAnalyze": true,
+  "license": "MIT",
+  "engines": {
+    "node": "0.12.7"
+  },
+  "dependencies": {
+    "angular-resource": "^1.4.8",
+    "azure-storage": "^0.6.0",
+    "bcryptjs": "^2.3.0",
+    "body-parser": "^1.14.1",
+    "connect-flash": "^0.1.1",
+    "connect-mongo": "^0.8.2",
+    "connect-multiparty": "^2.0.0",
+    "cookie-parser": "^1.4.0",
+    "ejs": "^2.3.4",
+    "express": "^4.13.3",
+    "express-session": "^1.12.1",
+    "mongoose": "^4.2.4",
+    "morgan": "^1.6.1",
+    "multer": "^1.1.0",
+    "passport": "^0.3.0",
+    "passport-facebook": "^2.0.0",
+    "passport-google-oauth": "^0.2.0",
+    "passport-local": "^1.0.0",
+    "s3": "^4.4.0",
+    "shortid": "^2.2.4",
+    "zlib": "^1.0.5"
+  },
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-copy": "^0.8.2",
+    "grunt-contrib-jshint": "^0.11.3",
+    "grunt-contrib-uglify": "^0.11.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "jshint-stylish": "^2.1.0",
+    "load-grunt-configs": "^0.4.3",
+    "load-grunt-tasks": "^3.4.0"
+  }
+}
